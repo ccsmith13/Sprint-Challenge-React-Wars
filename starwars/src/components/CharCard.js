@@ -1,30 +1,26 @@
 import React from "react";
-import styled from "styled-components";
-
-const Title = styled.h1`
-  font-size: 1.5em;
-  text-align: center;
-  color: white;
-  background-color: black;
-`;
-
-const CharCardContainer = styled.div`
-  background-color: white;
-  color: black;
-  width: 150px;
-`;
+import { Col, Card, CardBody, CardImg, CardHeader, CardText } from "reactstrap";
 
 const CharCard = ({ charInstance }) => {
   return (
-    <CharCardContainer>
-      <Title>{charInstance.name}</Title>
-      <p>Birth Year: {charInstance.birth_year}</p>
-      <p>Gender: {charInstance.gender}</p>
-      <p>Height: {charInstance.height} centimeters</p>
-      <p>Mass: {charInstance.mass} kilos</p>
-      <p>Skin Color: {charInstance.skin_color}</p>
-      <p>Hair Color: {charInstance.hair_color}</p>
-    </CharCardContainer>
+    <Col xs="6" md="4" lg="3">
+      <Card>
+        <CardImg
+          src="http://i.imgur.com/kw6Rlkl.jpg"
+          rounded
+          alt="star wars img"
+        />
+        <CardHeader tag="h3">{charInstance.name}</CardHeader>
+        <CardBody>
+          <CardText>Birth Year: {charInstance.birth_year}</CardText>
+          <CardText>Gender: {charInstance.gender}</CardText>
+          <CardText>Height: {charInstance.height} centimeters</CardText>
+          <CardText>Mass: {charInstance.mass} kilos</CardText>
+          <CardText>Skin Color: {charInstance.skin_color}</CardText>
+          <CardText>Hair Color: {charInstance.hair_color}</CardText>
+        </CardBody>
+      </Card>
+    </Col>
   );
 };
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CharCard from "./CharCard";
+import { Container, Row } from "reactstrap";
 
 export default function CharList() {
   const [charData, setCharData] = useState([]);
@@ -18,14 +19,14 @@ export default function CharList() {
   useEffect(didUpdate, []);
 
   return (
-    <div>
-      <div>
+    <Container>
+      <Row>
         {charData.map(charInstance => {
           return (
             <CharCard charInstance={charInstance} key={charInstance.created} />
           );
         })}
-      </div>
-    </div>
+      </Row>
+    </Container>
   );
 }
